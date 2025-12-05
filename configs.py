@@ -1,0 +1,17 @@
+#  this file contains configuration settings for the ORM system
+#  it handles environment variables, database connection details, and other settings
+#  required for the ORM to function correctly within the application.
+
+
+from pydantic_settings import BaseSettings
+
+class Settings(BaseSettings):
+    database_url: str
+    secret_key: str
+    algorithm: str
+    access_token_expire_minutes: int
+
+    class Config:
+        env_file = ".env"
+
+settings = Settings()
